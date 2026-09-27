@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shahidul Haque Shaheen — Data Science Portfolio</title>
+
+<style>
+  :root{
+    --bg:#0b0e1a;
+    --bg-alt:#11142a;
+    --card:#161a33;
+    --border:#282d4d;
+    --text:#eef0fa;
+    --muted:#9096b3;
+    --accent:#a78bfa;
+    --accent-soft:rgba(167,139,250,0.14);
+  }
+
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+
+  a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(11,14,26,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+  }
+
+  .logo{
+    font-weight:700;
+    letter-spacing:1px;
+    font-size:14px;
+    color:var(--accent);
+  }
+
+  .navlinks{
+    display:flex;
+    gap:26px;
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .navlinks a:hover{
+    color:var(--text);
+  }
+
+  @media (max-width:750px){
+    .navlinks{
+      display:none;
+    }
+  }
+
+  .navcta{
+    font-size:13px;
+    border:1px solid var(--border);
+    padding:8px 16px;
+    border-radius:6px;
+  }
+
+  .navcta:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+
+  .hero{
+    padding:100px 0 70px;
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 200px;
+    gap:40px;
+    align-items:start;
+  }
+
+  @media (max-width:700px){
+    .hero-grid{
+      grid-template-columns:1fr;
+    }
+
+    .hero-photo{
+      order:-1;
+      width:140px;
+    }
+  }
+
+  .hero-photo{
+    width:200px;
+    aspect-ratio:1/1;
+    border-radius:20px;
+    overflow:hidden;
+    background:linear-gradient(160deg,var(--card),var(--bg-alt));
+    border:1px solid var(--border);
+    position:relative;
+  }
+
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .hero .num{
+    color:var(--accent);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:2px;
+    margin-bottom:18px;
+  }
+
+  .hero h1{
+    font-size:clamp(40px,7vw,72px);
+    font-weight:800;
+    line-height:1.04;
+    letter-spacing:-2px;
+  }
+
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+
+  .hero p.tagline{
+    color:var(--muted);
+    font-size:19px;
+    max-width:600px;
+    margin:22px 0 30px;
+  }
+
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:34px;
+  }
+
+  .meta-pill{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--muted);
+    font-size:13px;
+    padding:7px 14px;
+    border-radius:999px;
+  }
+
+  .btnrow{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    padding:13px 24px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+  }
+
+  .btn-primary{
+    background:var(--accent);
+    color:#161226;
+  }
+
+  .btn-primary:hover{
+    background:#bda4fc;
+  }
+
+  .btn-ghost{
+    border:1px solid var(--border);
+    color:var(--text);
+  }
+
+  .btn-ghost:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+  }
+
+  .strip{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:var(--bg-alt);
+    padding:20px 0;
+    overflow:hidden;
+  }
+
+  .strip-inner{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .strip .chip{
+    font-size:13px;
+    color:var(--muted);
+    border:1px solid var(--border);
+    padding:6px 14px;
+    border-radius:999px;
+  }
+
+  section{
+    padding:70px 0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .kicker{
+    color:var(--accent);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  h2{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:24px;
+  }
+
+  .about-body{
+    max-width:680px;
+    color:#cfd3e6;
+    font-size:16.5px;
+  }
+
+  .about-body p{
+    margin-bottom:14px;
+  }
+
+  /* Timeline for education + research */
+
+  .timeline{
+    position:relative;
+    padding-left:28px;
+    max-width:720px;
+  }
+
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:6px;
+    bottom:6px;
+    width:2px;
+    background:var(--border);
+  }
+
+  .tl-item{
+    position:relative;
+    margin-bottom:36px;
+  }
+
+  .tl-item:last-child{
+    margin-bottom:0;
+  }
+
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-28px;
+    top:4px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px var(--accent-soft);
+  }
+
+  .tl-item h3{
+    font-size:18px;
+    margin-bottom:4px;
+  }
+
+  .tl-meta{
+    color:var(--accent);
+    font-size:13.5px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  .tl-item p{
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:10px;
+  }
+
+  .pillrow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .pill{
+    font-size:12.5px;
+    color:var(--muted);
+    border:1px solid var(--border);
+    padding:4px 11px;
+    border-radius:6px;
+  }
+
+  /* Skills */
+
+  .skill-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+  }
+
+  @media (max-width:700px){
+    .skill-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  .skill-cat h4{
+    color:var(--accent);
+    font-size:14px;
+    margin-bottom:10px;
+  }
+
+  .skill-cat .pillrow{
+    margin-bottom:0;
+  }
+
+  /* Projects */
+
+  .proj-list{
+    list-style:none;
+  }
+
+  .proj-item{
+    display:grid;
+    grid-template-columns:60px 1fr;
+    gap:20px;
+    padding:26px 0;
+    border-top:1px solid var(--border);
+  }
+
+  .proj-item:first-child{
+    border-top:none;
+  }
+
+  .proj-num{
+    color:var(--accent);
+    font-weight:800;
+    font-size:20px;
+  }
+
+  .proj-item h3{
+    font-size:18px;
+    margin-bottom:6px;
+  }
+
+  .proj-item p{
+    color:var(--muted);
+    font-size:14.5px;
+    margin-bottom:10px;
+    max-width:600px;
+  }
+
+  .proj-item a{
+    color:var(--accent);
+    font-size:13.5px;
+    font-weight:600;
+  }
+
+  /* Research callout */
+
+  .callout{
+    border-left:3px solid var(--accent);
+    background:var(--card);
+    padding:26px 30px;
+    border-radius:0 10px 10px 0;
+    max-width:720px;
+  }
+
+  .callout h3{
+    font-size:18px;
+    margin-bottom:6px;
+  }
+
+  .callout .role{
+    color:var(--accent);
+    font-size:13.5px;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .callout p{
+    color:#cfd3e6;
+    font-size:15px;
+  }
+
+  /* Contact */
+
+  .contact-cta{
+    text-align:center;
+    padding:20px 0 10px;
+  }
+
+  .contact-cta h2{
+    font-size:34px;
+  }
+
+  .contact-cta p{
+    color:var(--muted);
+    font-size:16px;
+    max-width:480px;
+    margin:0 auto 30px;
+  }
+
+  .contact-cta .btnrow{
+    justify-content:center;
+  }
+
+  .contact-meta{
+    color:var(--muted);
+    font-size:14px;
+    margin-top:26px;
+  }
+
+  footer{
+    padding:26px 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">SHAHIDUL.HS</div>
+
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+      </div>
+
+      <a href="#contact" class="navcta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero" style="border-bottom:none;">
+  <div class="wrap">
+
+    <div class="hero-grid">
+
+      <div>
+
+        <div class="num">
+          DATA SCIENCE · MACHINE LEARNING
+        </div>
+
+        <h1>
+          Shahidul Haque<br>
+          <em>Shaheen</em>
+        </h1>
+
+        <p class="tagline">
+          Data Science enthusiast building in Machine Learning,
+          Deep Learning, and Natural Language Processing.
+        </p>
+
+        <div class="meta-row">
+
+          <span class="meta-pill">
+            📍 Dhaka, Bangladesh
+          </span>
+
+          <span class="meta-pill">
+            🎓 B.Sc. CSE, BRAC University
+          </span>
+
+          <span class="meta-pill">
+            ✉ shahidul.haque.shaheen@gmail.com
+          </span>
+
+        </div>
+
+        <div class="btnrow">
+
+          <!-- CV BUTTON -->
+          <a
+            class="btn btn-primary"
+            href="Resume_ShahidulHaqueShaheen.pdf"
+            target="_blank">
+            ↓ Download CV
+          </a>
+
+          <a
+            class="btn btn-ghost"
+            href="#projects">
+            View Projects
+          </a>
+
+          <a
+            class="btn btn-ghost"
+            href="#contact">
+            Contact Me
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE PHOTO -->
+
+      <div class="hero-photo">
+
+        <img
+          src="myphoto.jpeg"
+          alt="Shahidul Haque Shaheen">
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SKILLS STRIP -->
+
+<div class="strip">
+
+  <div class="wrap strip-inner">
+
+    <span class="chip">Python</span>
+    <span class="chip">Scikit-learn</span>
+    <span class="chip">TensorFlow</span>
+    <span class="chip">Keras</span>
+    <span class="chip">SQL</span>
+    <span class="chip">Power BI</span>
+    <span class="chip">NLP</span>
+    <span class="chip">Computer Vision</span>
+
+  </div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="wrap">
+
+    <div class="kicker">
+      About
+    </div>
+
+    <h2>
+      Profile
+    </h2>
+
+    <div class="about-body">
+
+      <p>
+        I am passionate about Data Science, with two years of learning
+        and practical experience. I have strong programming skills and
+        enjoy solving data problems. My dedication to learning helps me
+        constantly improve my abilities and understanding in this field.
+      </p>
+
+      <p>
+        I am hardworking, determined, and always eager to grow —
+        seeking opportunities to expand my knowledge and make meaningful
+        contributions in Data Science.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EDUCATION & RESEARCH -->
+
+<section id="education">
+
+  <div class="wrap">
+
+    <div class="kicker">
+      Education & Research
+    </div>
+
+    <h2>
+      Academic path
+    </h2>
+
+    <div class="timeline">
+
+
+      <!-- EDUCATION -->
+
+      <div class="tl-item">
+
+        <h3>
+          B.Sc. in Computer Science and Engineering
+        </h3>
+
+        <div class="tl-meta">
+          BRAC University · Fall 2019 – Fall 2023 · CGPA 3.58/4.00
+        </div>
+
+        <p>
+          Relevant coursework: Data Structures, Algorithms,
+          Database Systems, Artificial Intelligence, Neural Networks,
+          Machine Learning, Signal Processing, Software Engineering.
+        </p>
+
+      </div>
+
+
+      <!-- THESIS -->
+
+      <div class="tl-item">
+
+        <h3>
+          CattleSavior: External Disease Detection via Deep Learning
+        </h3>
+
+        <div class="tl-meta">
+          Undergraduate Thesis · Supervised by Dr. Jannatun Noor
+        </div>
+
+        <p>
+          Conducted an undergraduate thesis on deep learning for
+          image classification, developing a system to detect
+          external diseases in cattle.
+        </p>
+
+        <div class="pillrow">
+
+          <span class="pill">
+            Machine Learning
+          </span>
+
+          <span class="pill">
+            Deep Learning
+          </span>
+
+          <span class="pill">
+            Image Processing
+          </span>
+
+          <span class="pill">
+            NLP
+          </span>
+
+          <span class="pill">
+            HCI
+          </span>
+
+          <span class="pill">
+            Generative AI
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+  <div class="wrap">
+
+    <div class="kicker">
+      Skills
+    </div>
+
+    <h2>
+      Toolkit
+    </h2>
+
+    <div class="skill-grid">
+
+
+      <div class="skill-cat">
+
+        <h4>
+          Programming
+        </h4>
+
+        <div class="pillrow">
+
+          <span class="pill">Python</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Java</span>
+          <span class="pill">HTML/CSS</span>
+          <span class="pill">C</span>
+          <span class="pill">C++</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-cat">
+
+        <h4>
+          Python Libraries
+        </h4>
+
+        <div class="pillrow">
+
+          <span class="pill">NumPy</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Matplotlib</span>
+          <span class="pill">Seaborn</span>
+          <span class="pill">Scikit-learn</span>
+          <span class="pill">TensorFlow</span>
+          <span class="pill">Keras</span>
+          <span class="pill">NLTK</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-cat">
+
+        <h4>
+          Machine Learning & Deep Learning
+        </h4>
+
+        <div class="pillrow">
+
+          <span class="pill">Regression</span>
+          <span class="pill">Naïve Bayes</span>
+          <span class="pill">Decision Trees</span>
+          <span class="pill">K-Means</span>
+          <span class="pill">PCA</span>
+          <span class="pill">ANN</span>
+          <span class="pill">CNN</span>
+          <span class="pill">RNN</span>
+          <span class="pill">LSTM</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="skill-cat">
+
+        <h4>
+          Tools & Software
+        </h4>
+
+        <div class="pillrow">
+
+          <span class="pill">Power BI</span>
+          <span class="pill">MySQL Workbench</span>
+          <span class="pill">Excel/Sheets</span>
+          <span class="pill">LaTeX</span>
+          <span class="pill">XAMPP</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+  <div class="wrap">
+
+    <div class="kicker">
+      Projects
+    </div>
+
+    <h2>
+      Notable work
+    </h2>
+
+    <ul class="proj-list">
+
+
+      <!-- PROJECT 1 -->
+
+      <li class="proj-item">
+
+        <div class="proj-num">
+          01
+        </div>
+
+        <div>
+
+          <h3>
+            Real Estate Price Prediction
+          </h3>
+
+          <p>
+            Predictive model estimating real-estate prices using
+            Linear Regression and DecisionTreeRegressor, evaluated
+            with Cross Validation and GridSearchCV.
+          </p>
+
+          <a
+            href="https://github.com/ShahidulHaqueShaheeen"
+            target="_blank">
+            View on GitHub →
+          </a>
+
+        </div>
+
+      </li>
+
+
+      <!-- PROJECT 2 -->
+
+      <li class="proj-item">
+
+        <div class="proj-num">
+          02
+        </div>
+
+        <div>
+
+          <h3>
+            Spam Message / Email Detector
+          </h3>
+
+          <p>
+            Classifier detecting spam with high precision using
+            tokenization, TF-IDF vectorization, and a Naïve Bayes model.
+          </p>
+
+          <a
+            href="https://github.com/ShahidulHaqueShaheeen"
+            target="_blank">
+            View on GitHub →
+          </a>
+
+        </div>
+
+      </li>
+
+
+      <!-- PROJECT 3 -->
+
+      <li class="proj-item">
+
+        <div class="proj-num">
+          03
+        </div>
+
+        <div>
+
+          <h3>
+            SQL Case Study on Data Science Job Salaries
+          </h3>
+
+          <p>
+            SQL-based case studies structured into Question, Query,
+            and Output components to extract salary insights.
+          </p>
+
+          <a
+            href="https://github.com/ShahidulHaqueShaheeen"
+            target="_blank">
+            View on GitHub →
+          </a>
+
+        </div>
+
+      </li>
+
+
+      <!-- PROJECT 4 -->
+
+      <li class="proj-item">
+
+        <div class="proj-num">
+          04
+        </div>
+
+        <div>
+
+          <h3>
+            Machine Learning Algorithm Implementations
+          </h3>
+
+          <p>
+            From-scratch implementations of Gradient Descent,
+            Linear/Logistic Regression, and Regularization
+            (Lasso, Ridge).
+          </p>
+
+          <a
+            href="https://github.com/ShahidulHaqueShaheeen"
+            target="_blank">
+            View on GitHub →
+          </a>
+
+        </div>
+
+      </li>
+
+
+      <!-- PROJECT 5 -->
+
+      <li class="proj-item">
+
+        <div class="proj-num">
+          05
+        </div>
+
+        <div>
+
+          <h3>
+            Pandas Series and DataFrame — Learning & Practice
+          </h3>
+
+          <p>
+            Data manipulation and exploratory analysis using
+            GroupBy, Pivot Tables, and dataset merging.
+          </p>
+
+          <a
+            href="https://github.com/ShahidulHaqueShaheeen"
+            target="_blank">
+            View on GitHub →
+          </a>
+
+        </div>
+
+      </li>
+
+
+      <!-- PROJECT 6 -->
+
+      <li class="proj-item">
+
+        <div class="proj-num">
+          06
+        </div>
+
+        <div>
+
+          <h3>
+            Feature Engineering Project
+          </h3>
+
+          <p>
+            Feature construction and transformation using pipelines,
+            including PCA for dimensionality reduction.
+          </p>
+
+          <a
+            href="https://github.com/ShahidulHaqueShaheeen"
+            target="_blank">
+            View on GitHub →
+          </a>
+
+        </div>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</section>
+
+
+<!-- RESEARCH -->
+
+<section id="research" style="border-bottom:none;">
+
+  <div class="wrap">
+
+    <div class="kicker">
+      Research Focus
+    </div>
+
+    <h2>
+      Where I want to go next
+    </h2>
+
+    <div class="callout">
+
+      <h3>
+        Research Interests
+      </h3>
+
+      <div class="role">
+        Open to PhD & research collaboration opportunities
+      </div>
+
+      <div class="pillrow">
+
+        <span class="pill">
+          Machine Learning
+        </span>
+
+        <span class="pill">
+          Deep Learning
+        </span>
+
+        <span class="pill">
+          Image Processing
+        </span>
+
+        <span class="pill">
+          NLP
+        </span>
+
+        <span class="pill">
+          Human Computer Interaction
+        </span>
+
+        <span class="pill">
+          Generative AI
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" style="border-bottom:none;">
+
+  <div class="wrap contact-cta">
+
+    <div
+      class="kicker"
+      style="text-align:center;">
+      Contact
+    </div>
+
+    <h2>
+      Let's connect
+    </h2>
+
+    <p>
+      Open to research collaborations, internships,
+      and data science roles.
+    </p>
+
+    <div class="btnrow">
+
+      <a
+        class="btn btn-primary"
+        href="mailto:shahidul.haque.shaheen@gmail.com">
+        Email Me
+      </a>
+
+      <a
+        class="btn btn-ghost"
+        href="https://linkedin.com/in/shahidul-haque-shaheen"
+        target="_blank">
+        LinkedIn
+      </a>
+
+      <a
+        class="btn btn-ghost"
+        href="https://github.com/ShahidulHaqueShaheeen"
+        target="_blank">
+        GitHub
+      </a>
+
+    </div>
+
+    <div class="contact-meta">
+      Dhaka, Bangladesh · +880 1705-157794
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+  © <span id="year"></span> Shahidul Haque Shaheen
+</footer>
+
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
