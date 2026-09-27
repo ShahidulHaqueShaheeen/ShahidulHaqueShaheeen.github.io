@@ -183,6 +183,7 @@
     display:flex;
     gap:12px;
     flex-wrap:wrap;
+    align-items:center;
   }
 
   .btn{
@@ -209,6 +210,25 @@
   .btn-ghost:hover{
     border-color:var(--accent);
     color:var(--accent);
+  }
+
+  /* Visible, copyable email display (not a mailto link/button) */
+  .email-display{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px dashed var(--border);
+    background:var(--card);
+    color:var(--text);
+    padding:12px 20px;
+    border-radius:8px;
+    font-size:14px;
+    user-select:all;
+  }
+  .email-display .label{
+    color:var(--muted);
+    font-size:12px;
+    user-select:none;
   }
 
   .strip{
@@ -1109,11 +1129,11 @@
 
     <div class="btnrow">
 
-      <a
-        class="btn btn-primary"
-        href="mailto:shahidul.haque.shaheen@gmail.com">
-        Email Me
-      </a>
+      <!-- Plain, copyable email — not a mailto link -->
+      <span class="email-display">
+        <span class="label">Email:</span>
+        shahidul.haque.shaheen@gmail.com
+      </span>
 
       <a
         class="btn btn-ghost"
@@ -1127,6 +1147,13 @@
         href="https://github.com/ShahidulHaqueShaheeen"
         target="_blank">
         GitHub
+      </a>
+
+      <a
+        class="btn btn-ghost"
+        href="https://scholar.google.com/citations?hl=en&authuser=1&user=9gLv524AAAAJ"
+        target="_blank">
+        Google Scholar
       </a>
 
     </div>
